@@ -9,6 +9,7 @@ on:
       - bindings/**
       - binding.gyp
       - .github/workflows/*.yml
+      - dist/**
   pull_request:
     paths:
       - grammar.js
@@ -16,6 +17,7 @@ on:
       - bindings/**
       - binding.gyp
       - .github/workflows/*.yml
+      - dist/**
 
 permissions:
   contents: read
