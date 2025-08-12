@@ -116,8 +116,9 @@ a: arg
 --------------------------------------------------------------------------------
 
 (method
-  (unary_selector
-    (unary_identifier))
+  (keyword_selector
+    (keyword)
+    (identifier))
   (statement
     (assignment
       (identifier)
