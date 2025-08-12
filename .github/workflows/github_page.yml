@@ -26,7 +26,7 @@ jobs:
         with: { node-version: 20 }
       - run: npm install
       - run: npm run generate
-      - run: npm run build-wasm
+      - run: npm run prestart
       - run: mkdir -p dist && cp -r site/* dist/ || true
       - run: cp tree-sitter-pharo.wasm dist/
       - uses: actions/upload-pages-artifact@v3
