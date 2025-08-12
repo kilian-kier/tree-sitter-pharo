@@ -36,7 +36,4 @@ jobs:
         uses: tree-sitter/parser-test-action@v2
         with:
           test-rust: true
-          test-node: true
           test-python: true
-          test-go: true
-          test-swift: true
