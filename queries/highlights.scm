@@ -28,7 +28,7 @@
 (binary_selector (binary_operator) @major_declaration.part) @structure.part
 (unary_selector (unary_identifier) @major_declaration.part) @structure.part
 
-[(pragma_keyword_selector) (pragma_unary_selector) (pragma_binary_selector)] @structure.part
+[(pragma_keyword_selector) (pragma_unary_selector)] @structure.part
 
 (temporaries) @punctuation.part
 (temporaries (identifier) @punctuation)

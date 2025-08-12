@@ -7,17 +7,8 @@ module.exports = grammar({
 
   supertypes: ($) => [$.selector, $.expression, $.primary],
   conflicts: ($) => [
-    [$.keyword_message, $.keyword_message],
     [$.temporaries, $.primary],
     [$.temporaries, $.temporaries],
-    // [$.binary_message, $.unary_message, $.cascade],
-    // [$.unary_message, $.binary_message, $.cascade, $.cascaded_binary],
-    // [$.cascade],
-    // [$.keyword_message, $.cascaded_binary],
-    // [$.keyword_message, $.cascaded_keyword, $.cascade],
-    // [$.keyword_message, $.cascaded_keyword],
-    // [$.keyword_message, $.cascade, $.cascaded_binary],
-    // [$.cascaded_keyword],
   ],
   inline: ($) => [$.keyword_part],
   // word: ($) => $.identifier_or_keyword,
@@ -53,7 +44,7 @@ module.exports = grammar({
     cascaded_binary_message: ($) => prec(-3, seq($.binary_operator, $.expression)),
     cascaded_keyword_message: ($) => prec(-4, repeat1($.keyword_part)),
 
-    keyword: ($) => /[A-Za-z_][A-Za-z0-9_]*:/,
+    keyword: ($) => token(seq(/[A-Za-z_][A-Za-z0-9_]*:/, /\s/)),
     // TODO: base should determine valid digits (need custom scanner)
     number: ($) => /-?[0-9]+\.[0-9]+|-?([0-9]+r)?[0-9]+/,
     string: ($) => token(seq("'", /([^']|'')*/, "'")),

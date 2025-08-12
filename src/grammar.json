@@ -356,8 +356,20 @@
       }
     },
     "keyword": {
-      "type": "PATTERN",
-      "value": "[A-Za-z_][A-Za-z0-9_]*:"
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[A-Za-z_][A-Za-z0-9_]*:"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s"
+          }
+        ]
+      }
     },
     "number": {
       "type": "PATTERN",
@@ -1018,10 +1030,6 @@
     }
   ],
   "conflicts": [
-    [
-      "keyword_message",
-      "keyword_message"
-    ],
     [
       "temporaries",
       "primary"
