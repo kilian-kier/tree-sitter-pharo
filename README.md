@@ -1,3 +1,3 @@
-# Work-in-Progress Tree-Sitter Grammar for Smalltalk
+# Tree-Sitter Grammar for Pharo Smalltalk
 
-An early draft for a tree-sitter grammar that parses Smalltalk as written in Squeak.
+An adaptation of the [Tree-Sitter Smalltalk grammar](https://github.com/tom95/tree-sitter-smalltalk) for Pharo.

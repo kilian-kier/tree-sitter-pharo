@@ -2,7 +2,7 @@
 Single-line Comment
 ================================================================================
 highlightQuery
-	" https://github.com/smalltalk/blob/master/src/queries/highlights.scm "
+	" https://github.com/kilian-kier/tree-sitter-pharo/blob/main/src/queries/highlights.scm "
 
 	123
 --------------------------------------------------------------------------------

@@ -3,7 +3,7 @@ const symbol_chars = `[A-Za-z0-9_:]+|[${binary_chars}]+`;
 const identifier_regex = /[A-Za-z_][A-Za-z0-9_]*/;
 
 module.exports = grammar({
-  name: "smalltalk",
+  name: "pharo",
 
   supertypes: ($) => [$.selector, $.expression, $.primary],
   conflicts: ($) => [
