@@ -24,7 +24,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npx tree-sitter build-wasm .
+      - run: npm install
+      - run: npm run generate
+      - run: npm run build-wasm
       - run: mkdir -p dist && cp -r site/* dist/ || true
       - run: cp tree-sitter-pharo.wasm dist/
       - uses: actions/upload-pages-artifact@v3
