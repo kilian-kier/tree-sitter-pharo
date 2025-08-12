@@ -4,7 +4,71 @@
 //! tree-sitter [`Parser`], and then use the parser to parse some code:
 //!
 //! ```
-//! let code = r#"
+//! let code = r#"test: a with: b and: c
+//!                    <testcase>
+//!                    <author: 'Kilian Kier'>
+//!                    | sum col stream blockResult bytes litArr dynArr charSym superHash flag spacedSym |
+//!
+//!                    "Arithmetic + unary/binary/keyword chains"
+//!                    sum := ((a + b) * c) + 255 - -3.14.
+//!                    sum := 1
+//!                      + 2;
+//!                      - 3.
+//!
+//!                    spacedSym := #'spaced symbol'.
+//!                    charSym := $Z.
+//!
+//!                    bytes := #[1 2 255].
+//!
+//!                    litArr := #(
+//!                      1 2 3
+//!                      $A $:
+//!                      'hello'
+//!                      #foo #'+'
+//!                      ('nested' #array)
+//!                      := ^ .
+//!                      identifier
+//!                    ).
+//!
+//!                    dynArr := {
+//!                      sum .
+//!                      a asString .
+//!                      (b isNil ifTrue: [ 'nil' ] ifFalse: [ b printString ])
+//!                    }.
+//!
+//!                    col := OrderedCollection new
+//!                      add: a;
+//!                      addAll: { b . c };
+//!                      yourself.
+//!
+//!                    blockResult := (1 to: 3) collect: [ :i | | tmp |
+//!                      tmp := i * sum.
+//!                      tmp asString
+//!                    ].
+//!
+//!                    stream := (ReadStream on: 'abc').
+//!
+//!                    flag := true & false.
+//!
+//!                    c isNil
+//!                      ifTrue: [ col add: nil ]
+//!                      ifFalse: [
+//!                        col add: (self format: sum with: c).
+//!                        Transcript
+//!                          show: ('sum = ', sum asString);
+//!                          cr;
+//!                          show: (col size asString);
+//!                          yourself
+//!                      ].
+//!
+//!                    superHash := super hash.
+//!                    thisContext size.  "touch thisContext"
+//!
+//!                    Transcript
+//!                      show: spacedSym printString;
+//!                      cr.
+//!
+//!                    ^ { sum . col size . blockResult size . superHash }
 //! "#;
 //! let mut parser = tree_sitter::Parser::new();
 //! let language = tree_sitter_pharo::LANGUAGE;
