@@ -11,6 +11,7 @@ module.exports = grammar({
     [$.temporaries, $.temporaries],
   ],
   inline: ($) => [$.keyword_part],
+  externals: ($) => [$.keyword],
   // word: ($) => $.identifier_or_keyword,
   extras: ($) => [$.comment, /[\s\f]/],
 
@@ -44,7 +45,6 @@ module.exports = grammar({
     cascaded_binary_message: ($) => prec(-3, seq($.binary_operator, $.expression)),
     cascaded_keyword_message: ($) => prec(-4, repeat1($.keyword_part)),
 
-    keyword: ($) => token(seq(/[A-Za-z_][A-Za-z0-9_]*:/, /\s/)),
     // TODO: base should determine valid digits (need custom scanner)
     number: ($) => /-?[0-9]+\.[0-9]+|-?([0-9]+r)?[0-9]+/,
     string: ($) => token(seq("'", /([^']|'')*/, "'")),
