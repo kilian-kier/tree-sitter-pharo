@@ -48,3 +48,19 @@ test: abc with: def and: ghi
     (identifier)
     (keyword)
     (identifier)))
+
+================================================================================
+Empty Keyword Method with multiple keywords and no spaces
+================================================================================
+test:abc with:def and:ghi
+
+--------------------------------------------------------------------------------
+
+(method
+  (keyword_selector
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
