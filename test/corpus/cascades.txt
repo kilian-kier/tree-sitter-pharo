@@ -6,16 +6,17 @@ test
     a abc; def
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (cascade
-      (unary_message
-        (identifier)
-        (unary_identifier))
-      (cascaded_unary_message
-        (unary_identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (cascade
+        (unary_message
+          (identifier)
+          (unary_identifier))
+        (cascaded_unary_message
+          (unary_identifier))))))
 
 ================================================================================
 Cascade to Binary Messages
@@ -25,18 +26,19 @@ test
     a + 3; + 5
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (cascade
-      (binary_message
-        (identifier)
-        (binary_operator)
-        (number))
-      (cascaded_binary_message
-        (binary_operator)
-        (number)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (cascade
+        (binary_message
+          (identifier)
+          (binary_operator)
+          (number))
+        (cascaded_binary_message
+          (binary_operator)
+          (number))))))
 
 ================================================================================
 Cascade to Keyword Messages
@@ -48,20 +50,21 @@ test
         with: 6 and: 7
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (cascade
-      (keyword_message
-        (identifier)
-        (keyword)
-        (number))
-      (cascaded_keyword_message
-        (keyword)
-        (number)
-        (keyword)
-        (number)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (cascade
+        (keyword_message
+          (identifier)
+          (keyword)
+          (number))
+        (cascaded_keyword_message
+          (keyword)
+          (number)
+          (keyword)
+          (number))))))
 
 ================================================================================
 Cascade to Many Keyword Messages
@@ -75,25 +78,26 @@ test
         wer: 12
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (cascade
-      (keyword_message
-        (identifier)
-        (keyword)
-        (number))
-      (cascaded_keyword_message
-        (keyword)
-        (number)
-        (keyword)
-        (number))
-      (cascaded_keyword_message
-        (keyword)
-        (number)
-        (keyword)
-        (number))
-      (cascaded_keyword_message
-        (keyword)
-        (number)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (cascade
+        (keyword_message
+          (identifier)
+          (keyword)
+          (number))
+        (cascaded_keyword_message
+          (keyword)
+          (number)
+          (keyword)
+          (number))
+        (cascaded_keyword_message
+          (keyword)
+          (number)
+          (keyword)
+          (number))
+        (cascaded_keyword_message
+          (keyword)
+          (number))))))

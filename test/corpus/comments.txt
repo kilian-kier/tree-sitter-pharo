@@ -7,12 +7,13 @@ highlightQuery
 	123
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (comment)
-  (statement
-    (number)))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (comment)
+    (statement
+      (number))))
 
 ================================================================================
 Multi-line Comment
@@ -23,11 +24,12 @@ b
 c" 234
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (number))
-  (comment)
-  (statement
-    (number)))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (number))
+    (comment)
+    (statement
+      (number))))

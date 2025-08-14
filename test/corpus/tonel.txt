@@ -1,0 +1,63 @@
+================================================================================
+Instance Method Tonel File
+================================================================================
+Class {
+    #name : #MyClass,
+    #superclass : #Object,
+    #category : 'MyCategory',
+    #package : 'MyPackage'
+}
+
+{ #category : #accessing }
+MyClass >> foo [
+    ^ 1
+]
+--------------------------------------------------------------------------------
+(source
+  (source_file
+    (class_definition
+      (type)
+      (ston_object))
+    (method_definition
+      (method_metadata
+        (ston_object))
+      (method_header
+        (identifier)
+        (unary_selector
+          (unary_identifier)))
+      (tonel_method
+        (statement
+          (return
+            (number)))))))
+================================================================================
+Class Method Tonel File
+================================================================================
+Class {
+    #name : #MyClass,
+    #superclass : #Object,
+    #category : 'MyCategory',
+    #package : 'MyPackage'
+}
+
+{ #category : #accessing }
+MyClass class >> bar [
+    ^ 2
+]
+--------------------------------------------------------------------------------
+(source
+  (source_file
+    (class_definition
+      (type)
+      (ston_object))
+    (method_definition
+      (method_metadata
+        (ston_object))
+      (method_header
+        (identifier)
+        (class_keyword)
+        (unary_selector
+          (unary_identifier)))
+      (tonel_method
+        (statement
+          (return
+            (number)))))))

@@ -6,9 +6,10 @@ test
     <abc>
 ---
 
-(method
+(source
+  (method
     (unary_selector (unary_identifier))
-    (pragma (pragma_unary_selector (unary_identifier))))
+    (pragma (pragma_unary_selector (unary_identifier)))))
 
 =================
 Keyword pragma
@@ -18,12 +19,13 @@ test
     <abc: 12 def: #(test abc) hello: 'a'>
 ---
 
-(method
+(source
+  (method
     (unary_selector (unary_identifier))
     (pragma (pragma_keyword_selector
-	    (keyword) (number)
-	    (keyword) (literal_array (symbol) (symbol))
-	    (keyword) (string))))
+        (keyword) (number)
+        (keyword) (literal_array (symbol) (symbol))
+        (keyword) (string)))))
 
 =================
 Multiple pragmas
@@ -33,10 +35,11 @@ openExplorer
 	<convertPriority: -1>
 ---
 
-(method
+(source
+  (method
     (unary_selector (unary_identifier))
     (pragma (pragma_unary_selector (unary_identifier)))
-    (pragma (pragma_keyword_selector (keyword) (number))))
+    (pragma (pragma_keyword_selector (keyword) (number)))))
 
 =================
 Temporaries after pragmas
@@ -46,8 +49,9 @@ openExplorer
 	| a |
 ---
 
-(method
+(source
+  (method
     (unary_selector (unary_identifier))
     (pragma (pragma_unary_selector (unary_identifier)))
-    (temporaries (identifier)))
+    (temporaries (identifier))))
 

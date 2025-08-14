@@ -16,8 +16,21 @@ module.exports = grammar({
   extras: ($) => [$.comment, /[\s\f]/],
 
   rules: {
-    method: ($) =>
-      seq($.selector, repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), ".")),
+    source: ($) => choice($.source_file, $.method),
+    source_file: ($) => seq(optional($.comment), $.class_definition, repeat($.method_definition)),
+
+    class_definition: ($) => seq($.type, $.ston_object),
+    type: ($) => token(choice('Class', 'Trait', 'Extension')),
+    ston_object: ($) => token(seq('{', /[^}]*/, '}')),
+
+    method_definition: ($) => seq(optional($.method_metadata), $.method_header, $.tonel_method),
+    method_metadata: ($) => $.ston_object,
+    method_header: ($) => seq($.identifier, optional($.class_keyword), '>>', $.selector),
+    class_keyword: ($) => 'class',
+    
+    tonel_method: ($) => prec.right(seq("[", repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."), "]")),
+
+    method: ($) => prec.right(seq($.selector, repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."))),
 
     temporaries: ($) => prec.dynamic(10, seq("|", repeat($.identifier), "|")),
 

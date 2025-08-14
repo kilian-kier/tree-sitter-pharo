@@ -6,13 +6,14 @@ test
     [a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block with arguments
@@ -22,15 +23,16 @@ test
     [:a :b | a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (block_argument)
-      (block_argument)
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (block_argument)
+        (block_argument)
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block with arguments and temporaries
@@ -40,18 +42,19 @@ test
     [:a :b | |a b| a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (block_argument)
-      (block_argument)
-      (temporaries
-        (identifier)
-        (identifier))
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (block_argument)
+        (block_argument)
+        (temporaries
+          (identifier)
+          (identifier))
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block with temporaries
@@ -61,16 +64,17 @@ test
     [|a b| a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (temporaries
-        (identifier)
-        (identifier))
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (temporaries
+          (identifier)
+          (identifier))
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block with temporaries and pipe operator
@@ -80,19 +84,20 @@ test
     [|a b| a | b]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (temporaries
-        (identifier)
-        (identifier))
-      (statement
-        (binary_message
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (temporaries
           (identifier)
-          (binary_operator)
-          (identifier))))))
+          (identifier))
+        (statement
+          (binary_message
+            (identifier)
+            (binary_operator)
+            (identifier)))))))
 
 ================================================================================
 Block with multiple statements
@@ -102,17 +107,18 @@ test
     [a. b. c.]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (statement
-        (identifier))
-      (statement
-        (identifier))
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (statement
+          (identifier))
+        (statement
+          (identifier))
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block argument with number
@@ -122,15 +128,16 @@ test
     [:a2 :b | a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (block_argument)
-      (block_argument)
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (block_argument)
+        (block_argument)
+        (statement
+          (identifier))))))
 
 ================================================================================
 Block argument with space
@@ -140,13 +147,14 @@ test
     [: a2 :  b | a]
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (block
-      (block_argument)
-      (block_argument)
-      (statement
-        (identifier)))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (block
+        (block_argument)
+        (block_argument)
+        (statement
+          (identifier))))))
 

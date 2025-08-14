@@ -6,13 +6,14 @@ test
     abc := def
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (assignment
-      (identifier)
-      (identifier))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (assignment
+        (identifier)
+        (identifier)))))
 
 ================================================================================
 Assignment to Binary Message
@@ -22,16 +23,17 @@ test
     abc := def + ghi
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (assignment
-      (identifier)
-      (binary_message
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (assignment
         (identifier)
-        (binary_operator)
-        (identifier)))))
+        (binary_message
+          (identifier)
+          (binary_operator)
+          (identifier))))))
 
 ================================================================================
 Nested Assignments
@@ -41,15 +43,16 @@ test
     abc := def := ghi
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (assignment
-      (identifier)
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
       (assignment
         (identifier)
-        (identifier)))))
+        (assignment
+          (identifier)
+          (identifier))))))
 
 ================================================================================
 Assignment to Keyword Message
@@ -59,18 +62,19 @@ test
     abc := def do: ghi with: jkl
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (assignment
-      (identifier)
-      (keyword_message
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (assignment
         (identifier)
-        (keyword)
-        (identifier)
-        (keyword)
-        (identifier)))))
+        (keyword_message
+          (identifier)
+          (keyword)
+          (identifier)
+          (keyword)
+          (identifier))))))
 
 ================================================================================
 Assignment in Keyword Message
@@ -80,17 +84,18 @@ test
     abc do: (a := test)
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (keyword_message
-      (identifier)
-      (keyword)
-      (parenthesized_expression
-        (assignment
-          (identifier)
-          (identifier))))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (keyword_message
+        (identifier)
+        (keyword)
+        (parenthesized_expression
+          (assignment
+            (identifier)
+            (identifier)))))))
 
 ================================================================================
 Assignment no space
@@ -100,13 +105,14 @@ test
     abc:=def
 --------------------------------------------------------------------------------
 
-(method
-  (unary_selector
-    (unary_identifier))
-  (statement
-    (assignment
-      (identifier)
-      (identifier))))
+(source
+  (method
+    (unary_selector
+      (unary_identifier))
+    (statement
+      (assignment
+        (identifier)
+        (identifier)))))
 
 ================================================================================
 Assignment after keyword method declaration
@@ -115,12 +121,13 @@ a: arg
   x:= a
 --------------------------------------------------------------------------------
 
-(method
-  (keyword_selector
-    (keyword)
-    (identifier))
-  (statement
-    (assignment
-      (identifier)
-      (identifier))))
+(source
+  (method
+    (keyword_selector
+      (keyword)
+      (identifier))
+    (statement
+      (assignment
+        (identifier)
+        (identifier)))))
 

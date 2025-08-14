@@ -6,9 +6,10 @@ test: abc
     hello
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 Multiple statements
@@ -20,11 +21,12 @@ test: abc
     def
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (statement (identifier))
     (statement (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 Multiple statements trailing dot
@@ -36,11 +38,12 @@ test: abc
     def.
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (statement (identifier))
     (statement (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 Multiple trailing dots
@@ -52,11 +55,12 @@ test: abc
     def...
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (statement (identifier))
     (statement (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 With temporaries
@@ -69,12 +73,13 @@ test: abc
     def...
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (temporaries (identifier) (identifier))
     (statement (identifier))
     (statement (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 With empty temporaries
@@ -87,12 +92,13 @@ test: abc
     def...
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (temporaries)
     (statement (identifier))
     (statement (identifier))
-    (statement (identifier)))
+    (statement (identifier))))
 
 =================
 With Return
@@ -105,9 +111,10 @@ test: abc
     ^ def
 ---
 
-(method
+(source
+  (method
     (keyword_selector (keyword) (identifier))
     (temporaries)
     (statement (identifier))
     (statement (identifier))
-    (statement (return (identifier))))
+    (statement (return (identifier)))))
