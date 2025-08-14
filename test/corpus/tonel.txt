@@ -17,15 +17,30 @@ MyClass >> foo [
   (source_file
     (class_definition
       (type)
-      (ston_object))
+      (class_header
+        (class_header_pair
+          (ston_key)
+          (ston_symbol))
+        (class_header_pair
+          (ston_key)
+          (ston_symbol))
+        (class_header_pair
+          (ston_key)
+          (string))
+        (class_header_pair
+          (ston_key)
+          (string))))
     (method_definition
       (method_metadata
-        (ston_object))
+        (method_metadata_object
+          (method_metadata_pair
+            (ston_key)
+            (ston_symbol))))
       (method_header
         (identifier)
         (unary_selector
           (unary_identifier)))
-      (tonel_method
+      (method_body
         (statement
           (return
             (number)))))))
@@ -48,16 +63,31 @@ MyClass class >> bar [
   (source_file
     (class_definition
       (type)
-      (ston_object))
+      (class_header
+        (class_header_pair
+          (ston_key)
+          (ston_symbol))
+        (class_header_pair
+          (ston_key)
+          (ston_symbol))
+        (class_header_pair
+          (ston_key)
+          (string))
+        (class_header_pair
+          (ston_key)
+          (string))))
     (method_definition
       (method_metadata
-        (ston_object))
+        (method_metadata_object
+          (method_metadata_pair
+            (ston_key)
+            (ston_symbol))))
       (method_header
         (identifier)
         (class_keyword)
         (unary_selector
           (unary_identifier)))
-      (tonel_method
+      (method_body
         (statement
           (return
             (number)))))))

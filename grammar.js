@@ -19,16 +19,68 @@ module.exports = grammar({
     source: ($) => choice($.source_file, $.method),
     source_file: ($) => seq(optional($.comment), $.class_definition, repeat($.method_definition)),
 
-    class_definition: ($) => seq($.type, $.ston_object),
+    class_definition: ($) => seq($.type, $.class_header),
     type: ($) => token(choice('Class', 'Trait', 'Extension')),
-    ston_object: ($) => token(seq('{', /[^}]*/, '}')),
 
-    method_definition: ($) => seq(optional($.method_metadata), $.method_header, $.tonel_method),
-    method_metadata: ($) => $.ston_object,
+    ston_object: ($) => seq(
+      "{",
+      sep($.ston_pair, ","),
+      optional(","),
+      "}"
+    ),
+    ston_symbol: ($) => token(seq("#", identifier_regex)),
+    ston_pair: ($) => seq($.ston_key, ":", $.ston_value),
+    ston_key: ($) => $.ston_symbol,
+    ston_value: ($) =>
+      choice(
+        $.ston_symbol,
+        $.string,
+        $.number,
+        $.ston_array,
+        $.ston_object
+      ),
+    ston_array: ($) => seq("[", sep($.ston_value, ","), optional(","), "]"),
+
+    class_header: ($) =>
+      prec.right(seq(
+        "{",
+        sep($.class_header_pair, ","),
+        optional(","),
+        "}"
+      )),
+
+    class_header_pair: ($) =>
+      choice(
+        prec(1, seq(field("key", alias("#name", $.ston_key)),          ":", field("name", $.ston_symbol))),
+        prec(1, seq(field("key", alias("#superclass", $.ston_key)),    ":", field("superclass", $.ston_symbol))),
+        prec(1, seq(field("key", alias("#traits", $.ston_key)),        ":", field("traits", $.string))),
+        prec(1, seq(field("key", alias("#classTraits", $.ston_key)),   ":", field("classTraits", $.string))),
+        prec(1, seq(field("key", alias("#category", $.ston_key)),      ":", field("category", $.string))),
+        prec(1, seq(field("key", alias("#package", $.ston_key)),       ":", field("package", $.string))),
+        prec(1, seq(field("key", alias("#instVars", $.ston_key)),      ":", field("instVars", $.ston_array))),
+        prec(1, seq(field("key", alias("#classVars", $.ston_key)),     ":", field("classVars", $.ston_array))),
+        prec(1, seq(field("key", alias("#pools", $.ston_key)),         ":", field("pools", $.ston_array))),
+        prec(1, seq(field("key", alias("#classInstVars", $.ston_key)), ":", field("classInstVars", $.ston_array))),
+        prec(1, seq(field("key", alias("#type", $.ston_key)),          ":", field("type", $.ston_symbol))),
+        prec(0, $.ston_pair)
+      ),
+
+    method_definition: ($) => seq(optional($.method_metadata), $.method_header, $.method_body),
+    method_metadata: ($) => $.method_metadata_object,
+
+    method_metadata_object: ($) =>
+      seq("{", sep($.method_metadata_pair, ","), optional(","), "}"),
+
+    method_metadata_pair: ($) =>
+      choice(
+        prec(1, seq(field("key", alias("#category", $.ston_key)), ":", field("category", $.ston_symbol, $.string))),
+        prec(0, $.ston_pair)
+      ),
+    
     method_header: ($) => seq($.identifier, optional($.class_keyword), '>>', $.selector),
     class_keyword: ($) => 'class',
     
-    tonel_method: ($) => prec.right(seq("[", repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."), "]")),
+    method_body: ($) => prec.right(seq("[", repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."), "]")),
 
     method: ($) => prec.right(seq($.selector, repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."))),
 
