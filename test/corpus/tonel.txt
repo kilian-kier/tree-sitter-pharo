@@ -91,3 +91,149 @@ MyClass class >> bar [
         (statement
           (return
             (number)))))))
+
+================================================================================
+Real example #1 - ZTimestampPreciseSNTPClient
+================================================================================
+"
+I am ZTimestampPreciseSNTPClient.
+I am a ZTimestampSNTPClient.
+
+I use DataAndTime with theoretical nanosecond precision.
+
+I can be used to verify the current clock.
+
+	ZTimestampPreciseSNTPClient new clockDifference.
+	
+	ZTimestampPreciseSNTPClient new
+		enforceClockDifference: 2 seconds
+		ifFail: [ :delta | 
+			self inform: ('Clock difference {1} > 2s' format: { delta }) ];
+		close. 
+		
+	ZTimestampPreciseSNTPClient logClockDifferenceLargerThan: 1 second.
+
+Normally this difference should be just just fractions of a second. If not, make sure your computer's clock itself is properly synchronized.
+"
+Class {
+	#name : #ZTimestampPreciseSNTPClient,
+	#superclass : #ZTimestampSNTPClient,
+	#category : #ZTimestamp
+}
+
+{ #category : #accessing }
+ZTimestampPreciseSNTPClient >> now [
+	^ DateAndTime now asUTC
+]
+
+{ #category : #accessing }
+ZTimestampPreciseSNTPClient >> ntpEpoch [
+	^ DateAndTime year: 1900 month: 1 day: 1 hour: 0 minute: 0 second: 0 offset: Duration zero
+]
+
+{ #category : #private }
+ZTimestampPreciseSNTPClient >> timestampFromSeconds: seconds fraction: fraction [
+	^ self ntpEpoch + seconds seconds + (fraction * (10 raisedToInteger: 9)) nanoSeconds 
+]
+--------------------------------------------------------------------------------
+(source
+  (source_file
+        (comment)
+        (class_definition
+          (type)
+          (class_header
+            (class_header_pair
+              (ston_key)
+              (ston_symbol))
+            (class_header_pair
+              (ston_key)
+              (ston_symbol))
+            (class_header_pair
+              (ston_key)
+              (ston_symbol))))
+        (method_definition
+          (method_metadata
+            (method_metadata_object
+              (method_metadata_pair
+                (ston_key)
+                (ston_symbol))))
+          (method_header
+            (identifier)
+            (unary_selector
+              (unary_identifier)))
+          (method_body
+            (statement
+              (return
+                (unary_message
+                  (unary_message
+                    (identifier)
+                    (unary_identifier))
+                  (unary_identifier))))))
+        (method_definition
+          (method_metadata
+            (method_metadata_object
+              (method_metadata_pair
+                (ston_key)
+                (ston_symbol))))
+          (method_header
+            (identifier)
+            (unary_selector
+              (unary_identifier)))
+          (method_body
+            (statement
+              (return
+                (keyword_message
+                  (identifier)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (number)
+                  (keyword)
+                  (unary_message
+                    (identifier)
+                    (unary_identifier)))))))
+        (method_definition
+          (method_metadata
+            (method_metadata_object
+              (method_metadata_pair
+                (ston_key)
+                (ston_symbol))))
+          (method_header
+            (identifier)
+            (keyword_selector
+              (keyword)
+              (identifier)
+              (keyword)
+              (identifier)))
+          (method_body
+            (statement
+              (return
+                (binary_message
+                  (binary_message
+                    (unary_message
+                      (self)
+                      (unary_identifier))
+                    (binary_operator)
+                    (unary_message
+                      (identifier)
+                      (unary_identifier)))
+                  (binary_operator)
+                  (unary_message
+                    (parenthesized_expression
+                      (binary_message
+                        (identifier)
+                        (binary_operator)
+                        (parenthesized_expression
+                          (keyword_message
+                            (number)
+                            (keyword)
+                            (number)))))
+                    (unary_identifier)))))))))
