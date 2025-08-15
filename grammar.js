@@ -65,7 +65,7 @@ module.exports = grammar({
         prec(0, $.ston_pair)
       ),
 
-    method_definition: ($) => seq(optional($.method_metadata), $.method_header, $.method_body),
+    method_definition: ($) => seq(optional($.method_metadata), $.method_header, "[", optional($.method_body), "]"),
     method_metadata: ($) => $.method_metadata_object,
 
     method_metadata_object: ($) =>
@@ -80,7 +80,7 @@ module.exports = grammar({
     method_header: ($) => seq($.identifier, optional($.class_keyword), '>>', $.selector),
     class_keyword: ($) => 'class',
     
-    method_body: ($) => prec.right(seq("[", repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."), "]")),
+    method_body: ($) => prec.right(seq(repeat(choice($.pragma, $.temporaries)), sep1($.statement, optional(".")))),
 
     method: ($) => prec.right(seq($.selector, repeat(choice($.pragma, $.temporaries)), sep(optional($.statement), "."))),
 
