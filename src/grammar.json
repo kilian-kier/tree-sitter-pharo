@@ -134,22 +134,6 @@
         }
       ]
     },
-    "ston_symbol": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "#"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[A-Za-z_][A-Za-z0-9_]*"
-          }
-        ]
-      }
-    },
     "ston_pair": {
       "type": "SEQ",
       "members": [
@@ -169,14 +153,14 @@
     },
     "ston_key": {
       "type": "SYMBOL",
-      "name": "ston_symbol"
+      "name": "symbol"
     },
     "ston_value": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "ston_symbol"
+          "name": "symbol"
         },
         {
           "type": "SYMBOL",
@@ -347,7 +331,7 @@
                 "name": "name",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "ston_symbol"
+                  "name": "symbol"
                 }
               }
             ]
@@ -381,7 +365,7 @@
                 "name": "superclass",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "ston_symbol"
+                  "name": "symbol"
                 }
               }
             ]
@@ -490,7 +474,7 @@
                     },
                     {
                       "type": "SYMBOL",
-                      "name": "ston_symbol"
+                      "name": "symbol"
                     }
                   ]
                 }
@@ -533,7 +517,7 @@
                     },
                     {
                       "type": "SYMBOL",
-                      "name": "ston_symbol"
+                      "name": "symbol"
                     }
                   ]
                 }
@@ -705,7 +689,7 @@
                 "name": "type",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "ston_symbol"
+                  "name": "symbol"
                 }
               }
             ]
@@ -855,7 +839,7 @@
                 "name": "category",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "ston_symbol"
+                  "name": "symbol"
                 }
               }
             ]

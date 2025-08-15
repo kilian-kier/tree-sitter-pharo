@@ -20,10 +20,10 @@ MyClass >> foo [
       (class_header
         (class_header_pair
           (ston_key)
-          (ston_symbol))
+          (symbol))
         (class_header_pair
           (ston_key)
-          (ston_symbol))
+          (symbol))
         (class_header_pair
           (ston_key)
           (string))
@@ -35,7 +35,53 @@ MyClass >> foo [
         (method_metadata_object
           (method_metadata_pair
             (ston_key)
-            (ston_symbol))))
+            (symbol))))
+      (method_header
+        (identifier)
+        (unary_selector
+          (unary_identifier)))
+      (method_body
+        (statement
+          (return
+            (number)))))))
+================================================================================
+Instance Method Tonel File with symbol method meta
+================================================================================
+Class {
+    #name : #MyClass,
+    #superclass : #Object,
+    #category : 'MyCategory',
+    #package : 'MyPackage'
+}
+
+{ #category : #'not accessing' }
+MyClass >> foo [
+    ^ 1
+]
+--------------------------------------------------------------------------------
+(source
+  (source_file
+    (class_definition
+      (type)
+      (class_header
+        (class_header_pair
+          (ston_key)
+          (symbol))
+        (class_header_pair
+          (ston_key)
+          (symbol))
+        (class_header_pair
+          (ston_key)
+          (string))
+        (class_header_pair
+          (ston_key)
+          (string))))
+    (method_definition
+      (method_metadata
+        (method_metadata_object
+          (method_metadata_pair
+            (ston_key)
+            (symbol))))
       (method_header
         (identifier)
         (unary_selector
@@ -66,10 +112,10 @@ MyClass class >> bar [
       (class_header
         (class_header_pair
           (ston_key)
-          (ston_symbol))
+          (symbol))
         (class_header_pair
           (ston_key)
-          (ston_symbol))
+          (symbol))
         (class_header_pair
           (ston_key)
           (string))
@@ -81,7 +127,7 @@ MyClass class >> bar [
         (method_metadata_object
           (method_metadata_pair
             (ston_key)
-            (ston_symbol))))
+            (symbol))))
       (method_header
         (identifier)
         (class_keyword)
@@ -144,19 +190,19 @@ ZTimestampPreciseSNTPClient >> timestampFromSeconds: seconds fraction: fraction 
           (class_header
             (class_header_pair
               (ston_key)
-              (ston_symbol))
+              (symbol))
             (class_header_pair
               (ston_key)
-              (ston_symbol))
+              (symbol))
             (class_header_pair
               (ston_key)
-              (ston_symbol))))
+              (symbol))))
         (method_definition
           (method_metadata
             (method_metadata_object
               (method_metadata_pair
                 (ston_key)
-                (ston_symbol))))
+                (symbol))))
           (method_header
             (identifier)
             (unary_selector
@@ -174,7 +220,7 @@ ZTimestampPreciseSNTPClient >> timestampFromSeconds: seconds fraction: fraction 
             (method_metadata_object
               (method_metadata_pair
                 (ston_key)
-                (ston_symbol))))
+                (symbol))))
           (method_header
             (identifier)
             (unary_selector
@@ -205,7 +251,7 @@ ZTimestampPreciseSNTPClient >> timestampFromSeconds: seconds fraction: fraction 
             (method_metadata_object
               (method_metadata_pair
                 (ston_key)
-                (ston_symbol))))
+                (symbol))))
           (method_header
             (identifier)
             (keyword_selector

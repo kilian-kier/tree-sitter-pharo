@@ -353,11 +353,11 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "string",
             "named": true
           },
           {
-            "type": "string",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -417,7 +417,7 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -427,11 +427,11 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "string",
             "named": true
           },
           {
-            "type": "string",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -451,7 +451,7 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -471,7 +471,7 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -730,7 +730,7 @@
         "required": false,
         "types": [
           {
-            "type": "ston_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -926,7 +926,7 @@
       "required": false,
       "types": [
         {
-          "type": "ston_symbol",
+          "type": "symbol",
           "named": true
         }
       ]
@@ -987,11 +987,11 @@
           "named": true
         },
         {
-          "type": "ston_symbol",
+          "type": "string",
           "named": true
         },
         {
-          "type": "string",
+          "type": "symbol",
           "named": true
         }
       ]
@@ -1156,10 +1156,6 @@
   },
   {
     "type": "self",
-    "named": true
-  },
-  {
-    "type": "ston_symbol",
     "named": true
   },
   {
